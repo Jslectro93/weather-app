@@ -42,17 +42,12 @@ function selectDayHourClick($item) {
 function handleSelectDayWeatherClick(event) {
   const $tabPanelSelected = tabPanelSelected();
   const $dayWeatherSelected = $tabPanelSelected.querySelector(".is-selected");
-  let $dayWeather = event.path[1];
-  // console.log($dayWeather.classList.item(0))
-  if ($dayWeather.classList.item(0) === "dayWeather-list") {
-    $dayWeather = event.path[0];
-    // $dayWeather.classList.add('is-selected')
-  }
+  const $dayWeather = event.currentTarget;
   $dayWeatherSelected.classList.remove("is-selected");
   $dayWeather.classList.add("is-selected");
 
-  let id = Number($dayWeather.id);
-  let idSelected = Number($dayWeatherSelected.id);
+  const id = Number($dayWeather.id);
+  const idSelected = Number($dayWeatherSelected.id);
   const $dayWeatherSummary = $tabPanelSelected.querySelector(
     `.dayWeather-summary[id="${id}"]`
   );
